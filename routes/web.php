@@ -36,5 +36,8 @@ Route::get('/help', function () {
 })->middleware(['auth', 'verified'])->name('help');
 
 Route::get('/todo', [TodoController::class, "index"])->middleware(['auth', 'verified'])->name('todo.index');
+Route::get('/todo/create', [TodoController::class, "create"])->middleware(['auth', 'verified'])->name('todo.create');
+Route::get('/todo/{todo}/edit', [TodoController::class, "edit"])->middleware(['auth', 'verified'])->name('todo.edit');
+Route::post('/todo', [TodoController::class, "store"])->middleware(['auth', 'verified'])->name('todo.store');
 
 require __DIR__.'/auth.php';

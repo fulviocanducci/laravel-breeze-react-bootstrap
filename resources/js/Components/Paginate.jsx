@@ -2,7 +2,6 @@ import { Link } from "@inertiajs/inertia-react";
 import React from "react";
 import { htmlDecode } from "../Utils";
 const Paginate = ({ model }) => {
-    console.log(model);
     const cssChange = (item, page) => {
         if (!isNaN(+item)) {
             if (+item === page) {
