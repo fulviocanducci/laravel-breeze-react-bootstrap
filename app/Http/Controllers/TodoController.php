@@ -29,9 +29,13 @@ class TodoController extends Controller
         if ($data['id'] > 0) {
             Todo::whereId($data['id'])
                 ->update($data);
+            $id = $data['id'];
+            session()->flash('message', 'Update data !!!');
         } else {
-            Todo::create($data);
+            $data = Todo::create($data);
+            $id = $data->id;
+            session()->flash('message', 'Create data !!!');
         }
-        return Redirect::route('todo.index');
+        return Redirect::route('todo.edit', [$id]);
     }
 }

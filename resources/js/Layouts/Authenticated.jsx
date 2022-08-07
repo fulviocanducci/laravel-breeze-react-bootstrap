@@ -1,10 +1,14 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import ApplicationLogo from "@/Components/ApplicationLogo";
 import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
-import { Link } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/inertia-react";
+import { useToast } from "@/Utils";
+
 export default function Authenticated({ auth, header, children }) {
+    const { flash } = usePage().props;
+    const toast = useToast();
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
     const menus = useMemo(() => {
@@ -14,6 +18,11 @@ export default function Authenticated({ auth, header, children }) {
             { name: "todo.index", title: "Todo" },
         ];
     }, []);
+    useEffect(() => {
+        if (flash && flash.message) {
+            toast.success(flash.message);
+        }
+    }, [flash]);
     return (
         <div className="min-h-screen bg-gray-100">
             <nav className="bg-white border-b border-gray-100">

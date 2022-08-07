@@ -10,7 +10,7 @@ export default function Edit(props) {
         <Authenticated auth={props.auth} errors={props.errors} header={null}>
             <Head title="Todo - Edit" />
             <Container>
-                <CreateOrEdit type="Edit" values={values} />
+                <CreateOrEdit type="Edit" values={values} buttonLabel="Edit" />
             </Container>
         </Authenticated>
     );

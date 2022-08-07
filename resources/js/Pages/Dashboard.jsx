@@ -6,7 +6,9 @@ export default function Dashboard(props) {
     return (
         <Authenticated auth={props.auth} errors={props.errors} header={null}>
             <Head title="Dashboard" />
-            <Container>You're logged in!</Container>
+            <Container>
+                <div>You're logged in!</div>
+            </Container>
         </Authenticated>
     );
 }

@@ -12,6 +12,7 @@ export default function Create(props) {
                 <CreateOrEdit
                     values={{ id: 0, title: "", description: "" }}
                     type={"Create"}
+                    buttonLabel="Create"
                 />
             </Container>
         </Authenticated>

@@ -6,7 +6,9 @@ export default function Help(props) {
     return (
         <Authenticated auth={props.auth} errors={props.errors} header={null}>
             <Head title="Help" />
-            <Container>Help !!!</Container>
+            <Container>
+                <div>Help !!!</div>
+            </Container>
         </Authenticated>
     );
 }

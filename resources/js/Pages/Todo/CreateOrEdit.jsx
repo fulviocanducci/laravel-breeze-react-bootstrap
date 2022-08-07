@@ -7,7 +7,11 @@ import { Inertia } from "@inertiajs/inertia";
 import { useForm } from "@inertiajs/inertia-react";
 import React from "react";
 
-export default function CreateOrEdit({ values = {}, type = "Create" }) {
+export default function CreateOrEdit({
+    values = {},
+    type = "Create",
+    buttonLabel = "...",
+}) {
     const { data, setData, post, processing, errors } = useForm({ ...values });
     function submit(e) {
         e.preventDefault();
@@ -43,13 +47,13 @@ export default function CreateOrEdit({ values = {}, type = "Create" }) {
             />
             {errors.description && <div>{errors.description}</div>}
             <div className="mt-3">
-                <Submit processing={processing}>Send</Submit>
+                <Submit processing={processing}>{buttonLabel}</Submit>
                 <Button
                     className="m-2"
                     type="button"
                     handleClick={(e) => Inertia.visit(route("todo.index"))}
                 >
-                    Voltar
+                    Back
                 </Button>
             </div>
         </form>
